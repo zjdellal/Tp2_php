@@ -21,14 +21,14 @@
 .container img {
 	float: left;
 	max-width: 60px;
-	width: 10%;
+	width: 100%;
 	margin-right: 20px;
 	border-radius: 50%;
 }
 
 .container img.right {
 	float: right;
-	margin-left: 200px;
+	margin-left: 20px;
 	margin-right: 0;
 
 }
@@ -64,8 +64,9 @@
 
 }
 
-.darker label{
-	color: #cd6792;
+.darker label
+{
+	color: #59cdcc;
 	float: right;
 }
 .espace_chat textarea{
@@ -77,6 +78,4 @@
 	 border-color: #39d4cd;
 	 border-radius: 10px;
 }
- .espace_chat button.chater{
-	 border-radius: 30px;
- }
+

@@ -1,13 +1,12 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href=<?=base_url('assets/css/StyleChat.css')?> />
+
 </head>
 
-
 <h2>Chat Messages</h2>
-
 <div class="container">
-	<img src=<?=base_url('assets//images/avatar_1')?> alt="Avatar" >
+	<img src=<?=base_url('assets//images/avatar_1')?>  >
 	<h2><?=form_label('user', 'nom_utilisateur')?></h2>
 	<div class="msg_div_lecture">
 		<p>Hello. How are you today?</p>
@@ -16,8 +15,8 @@
 </div>
 
 <div class="container darker">
-	<img src=<?=base_url('assets//images/avatar_f')?>  alt="Avatar" class="right" >
-	<h2> <?=form_label('user', 'nom_utilisateur')?>  </h2>
+	<img src=<?=base_url('assets//images/avatar_f')?>   class="right" >
+	<h2> <?=form_label('user', 'nom_utilisateur')?></h2>
 	<div class="msg_div_ecrire">
 		<p>Hey! I'm fine. Thanks for asking!</p>
 	</div>
