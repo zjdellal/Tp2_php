@@ -21,6 +21,7 @@ class Auth extends CI_Controller {
 		if (!$this->ion_auth->logged_in())
 		{
 			// redirect them to the login page
+			//$this->load->view('templates/header');
 			redirect('auth/login', 'refresh');
 		}
 		elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
@@ -806,14 +807,29 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function _render_page($view, $data=null, $returnhtml=false)//I think this makes more sense
+	/*
+	c'est toi qui ma allumer hier en me disant que render pages est une méthode
+	fak tout mes soucis se sont reglé vue que tout les pages passe par cette méthode
+	j mis return html en true (renvoi le scripte html et non la vue au nivigateur)
+	ensuite j'ai inserer nos templates dans et injecter le scripte dans le gabairit :) 
+
+	*/
+
+
+
+
+	public function _render_page($view, $data=null, $returnhtml=true)//I think this makes more sense
 	{
 
 		$this->viewdata = (empty($data)) ? $this->data: $data;
 
-		$view_html = $this->load->view($view, $this->viewdata, $returnhtml);
+		$view_html['contenu'] = $this->load->view($view, $this->viewdata, $returnhtml);
 
-		if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
+		//pas besoin de son return ;) 
+		//if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
+		$this->load->view('templates/header');
+		$this->load->view('gabarit', $view_html);
+		$this->load->view('templates/footer');
 	}
 
 }
