@@ -1,0 +1,82 @@
+
+.container {
+	border: 2px solid #dedede;
+	background-color: #f1f1f1;
+	border-radius: 20px;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.darker {
+	border-color: #ccc;
+	background-color: #ddd;
+}
+
+.container::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.container img {
+	float: left;
+	max-width: 60px;
+	width: 10%;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+
+.container img.right {
+	float: right;
+	margin-left: 200px;
+	margin-right: 0;
+
+}
+
+.time-right {
+	float: right;
+	color: #aaa;
+}
+
+.time-left {
+	float: left;
+	color: #999;
+}
+
+.container div.msg_div_lecture {
+	background-color: #569bff;
+	padding: 10px;
+	border-radius: 30px;
+	width: 90%;
+	float: right;
+}
+
+.darker div.msg_div_ecrire {
+	float: left;
+	background-color: #032ccc;
+	padding: 10px;
+	border-radius: 30px;
+	width: 90%;
+}
+.container label
+{
+	color:#cd6792;
+
+}
+
+.darker label{
+	color: #cd6792;
+	float: right;
+}
+.espace_chat textarea{
+	border-radius: 10px;
+}
+
+ fieldset{
+	 width: 70px;
+	 border-color: #39d4cd;
+	 border-radius: 10px;
+}
+ .espace_chat button.chater{
+	 border-radius: 30px;
+ }

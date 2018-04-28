@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
 	<title>Free HTML5 Templates</title>

@@ -15,9 +15,10 @@ class Conversation extends CI_Controller
 
     public function afficheSalle(){
         echo "Conversation/afficheSalle";
-    }
+}
 
     public function ajouteMessage(){
         echo "Conversation/ajouteMessage";
     }
+
 }

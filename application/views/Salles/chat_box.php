@@ -1,35 +1,46 @@
 
 <head>
-	<link rel="stylesheet" type="text/css" href=<?=base_url("css/style_chat_box.css" )?>/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href=<?=base_url('assets/css/StyleChat.css')?> />
 </head>
 
 
 <h2>Chat Messages</h2>
 
 <div class="container">
-	<img src="" alt="Avatar" style="width:100%;">
-	<p>Hello. How are you today?</p>
+	<img src=<?=base_url('assets//images/avatar_1')?> alt="Avatar" >
+	<h2><?=form_label('user', 'nom_utilisateur')?></h2>
+	<div class="msg_div_lecture">
+		<p>Hello. How are you today?</p>
+	</div>
 	<span class="time-right"><?= date(DATE_RFC822, now('America/Toronto'));?></span>
 </div>
 
 <div class="container darker">
-	<img src="" alt="Avatar" class="right" style="width:100%;">
-	<p>Hey! I'm fine. Thanks for asking!</p>
-	<span class="time-left">11:01</span>
+	<img src=<?=base_url('assets//images/avatar_f')?>  alt="Avatar" class="right" >
+	<h2> <?=form_label('user', 'nom_utilisateur')?>  </h2>
+	<div class="msg_div_ecrire">
+		<p>Hey! I'm fine. Thanks for asking!</p>
+	</div>
+	<span class="time-left"><?= date(DATE_RFC822, now('America/Toronto'));?></span>
 </div>
 
-<div class="container">
-	<img src="" alt="Avatar" style="width:100%;">
-	<p>Sweet! So, what do you wanna do today?</p>
-	<span class="time-right">11:02</span>
+<div class="espace_chat">
+	<?=form_open(base_url('Conversation/ajouteMessage'));?>
+	<?php echo form_fieldset('Chater');?>
+ 	<?php $message_chat = array(
+			'type' => 'textarea',
+			'id' => 'description',
+			'name' => 'description',
+			'cols'=>'40',
+			'rows'=>'4',
+			'placeholder' => '   Chater ici  .....',
+
+		);
+ 	echo form_textarea($message_chat);
+ 	echo form_submit('Chater','chater');
+ 	echo form_fieldset_close();
+ 	echo form_close()?>
+
+
 </div>
-
-<div class="container darker">
-	<img src="" alt="Avatar" style="width:100%;">
-	<p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-	<span class="time-left">11:05</span>
-</div>
-
-
 
