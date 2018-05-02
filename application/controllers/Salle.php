@@ -1,46 +1,26 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User:
  * Date: 2018-04-20
  * Time: 14:32
  */
-class Salle extends CI_Controller
+if (!defined('BASEPATH'))exit('No direct script access allowed');
+include_once(APPPATH . 'controllers/Controller_Custom.php');
+
+class Salle extends Controller_Custom
 {
-	private $statut;
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->library(array('ion_auth', 'form_validation'));
-		$this->load->helper(array('url', 'language'));
-		$this->statut = $this->ion_auth->logged_in();
+    public function changeSalle($nomSalle)
+    {
+        $this->load->helper('url');
+        redirect('/Conversation/afficheSalle/'.$nomSalle, 'refresh');
+    }
 
-	}
-
-	public function changeSalle($salle)
-	{
-		echo "Salle : ".$salle;
-	}
-
-	public function accueil()
-	{
-		echo "Salle/accueil";
-	}
-
-	public function index()
-	{
-		$this->load->view('templates/header');
-		if (!$this->statut) {
-			$data['contenu'] = 'remplis moi je suis vide :/ ';
-			//$this->load->view('Gabarit', $data);
-			$this->load->view('Salles/index',$data);
-
-		} else {
-			redirect('auth');
-		}
-		$this->load->view('templates/footer');
-	}
+    public function accueil()
+    {
+        $data = array("title"=>"Accueil");
+        $this->_render_page('salle/accueil.php',$data);
+    }
 
 }

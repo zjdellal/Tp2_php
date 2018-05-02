@@ -8,8 +8,16 @@
  */
 class SalleInfo extends CI_Model
 {
-    private $sallesBD = ['LOISIR', 'SPORTS', 'ETUDES'];
-    private $sallesXML = ['LIBRE', 'PLAINTES', 'ADMINISTRATION'];
+    private $sallesBD = [
+        'LOISIR' => 'CONNECTE',
+        'SPORTS' => 'CONNECTE',
+        'ETUDES' => 'CONNECTE'
+    ];
+    private $sallesXML = [
+        'LIBRE' => 'PUBLIC',
+        'PLAINTES' => 'PUBLIC',
+        'ADMINISTRATION' => 'ADMIN'
+    ];
     private $motsInterdits = ['MERDE', 'FUCK', 'CALISS', 'CRISS', 'ESTIE', 'OSTIE', 'TABARNAK', 'TABARNAQUE', 'SACRAMENT', 'BULLSHIT', 'SHIT'];
 
     /**
@@ -20,9 +28,9 @@ class SalleInfo extends CI_Model
     public function isBDorXML($nomSalle)
     {
         $retour = FALSE;
-        if (in_array(strtoupper($nomSalle), $this->sallesBD)) {
+        if (isset($this->sallesBD[strtoupper($nomSalle)])) {
             $retour = 'BD';
-        } else if (in_array(strtoupper($nomSalle), $this->sallesXML)) {
+        } else if (isset($this->$this->sallesXML[strtoupper($nomSalle)])) {
             $retour = 'XML';
         }
         return $retour;
@@ -38,11 +46,12 @@ class SalleInfo extends CI_Model
         $valide = true;
         $tokens = explode(" ", $str);
         for ($i = 0; $i < sizeof($tokens); $i++) {
-            if(in_array(strtoupper($tokens[$i]), $this->motsInterdits)){
-                $valide=false;
+            if (in_array(strtoupper($tokens[$i]), $this->motsInterdits)) {
+                $valide = false;
             }
         }
         return $valide;
+
     }
 
     /**
@@ -50,8 +59,20 @@ class SalleInfo extends CI_Model
      * @param $nomSalle
      * @return mixed ID ou null si introuvable
      */
-    public function getSalleId($nomSalle){
-        $query = $this->db->get_where('salles',array('nom'=>$nomSalle));
+    public function getSalleId($nomSalle)
+    {
+        $query = $this->db->get_where('salles', array('nom' => $nomSalle));
         return $query->result_array()[0];
+    }
+
+    public function getSalleStatus($nomSalle)
+    {
+        $status = null;
+        if ($this->isBDorXML($nomSalle) === 'BD') {
+            $status = $this->sallesBD[strtoupper($nomSalle)];
+        } elseif ($this->isBDorXML($nomSalle) === 'XML') {
+            $status = $this->sallesXML[strtoupper($nomSalle)];
+        }
+        return $status;
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<salles>
+	<salle id="LIBRE">
+		<message user="ZAko">
+			<texte heure="today">Go Habs Go !!</texte>
+		</message>
+		<message user="chicharito">
+			<texte heure="demain">Go Impact Go !!</texte>
+		</message>
+		<message user="ZAkaria">
+			<texte heure="Wed, 02 May 18 18:53:13 +0000">T entrain d'ecrire dans la salle Libre Via Xml !!!</texte>
+		</message>
+		<message user="Manu ">
+			<texte heure="Wed, 02 May 18 18:55:31 +0000">hola hola</texte>
+		</message>
+		<message user="refresh">
+			<texte heure="Wed, 02 May 18 18:58:23 +0000">es que je suis bon la avec refresh</texte>
+		</message>
+		<message user="refresh">
+			<texte heure="Wed, 02 May 18 18:58:50 +0000">es que je suis bon la avec refresh</texte>
+		</message>
+		<message user="refresh">
+			<texte heure="Wed, 02 May 18 18:59:42 +0000">es que je suis bon la avec refresh</texte>
+		</message>
+	<message user="refresh"><texte heure="Wed, 02 May 18 19:00:13 +0000">es que je suis bon la avec refresh</texte></message></salle>
+	<salle id="Plainte">
+		<message user="Pogba">
+			<texte heure="today">Go Man U Go !!</texte>
+		</message>
+	<message user="je me plaint "><texte heure="Wed, 02 May 18 19:04:11 +0000">on ecrit dans Plainte </texte></message></salle>
+</salles>
